@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Components</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Accessible Components</h1>
+    </header>
+    <main>
+        <section id="introduction">
+
+            <h2>Introduction</h2>
+            <div class="container">
+                <h3>Role</h3><p>Interaction Designer</p>
+              </div>
+              <div class = 'container'>
+              <h3>Goal</h3>
+              <p> - Understand how components support accessibility by accommodating multiple input methods (mouse, keyboard) and output forms (visual style, text, screen reader labels). </p>
+               <p> - Recognize that components exist in different states to handle user interactions effectively.</p>
+                <p>- Learn to modify components by balancing trade-offs between learnability, memorability, efficiency, and accessibility.</p>
+              </div>
+        </section>
+        <section id="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Imagine yourself navigating a website or application with a motor, visual, or audio disability. How would your experience differ from the typical user? Consider the challenges you might face with interactions, visibility, and the overall usability of the platform. How can design elements be modified or added to ensure that your experience is as seamless and efficient as possible, without feeling excluded or frustrated?</p>
+            <p>In user-centered design, it is essential to consider all user groups. Many commonly used components lack accessibility for individuals with motor, visual, or auditory disabilities. With this in mind, redesign a checklist or radio component by balancing learnability, memorability, efficiency, and accessibility. Using existing implementations as a foundation, evaluate the component's accessibility features to assess its usability and identify potential shortcomings. </p>
+        </section>
+        <section id="solution">
+            <h2>Research</h2>
+        <h3> 01. Input</h3>  
+        <h4> I analyzed the checklist/radio component interaction implementation of three commonly visited website: Amazon, Airbnb, and Google Forms. In order to asses their effectiveness, I reflected on following questions:
+        </h4> 
+        <h4>- What is the process of interacting with each component like? What's different? </h4>
+           <h4> - What are all the functions the component can do (or can't do)? </h4>
+           <h4> - Apply the considerations from class: what functionalities of the component are learnable, memorable, efficient?</h4>
+
+           <p>My findings are summarized in the table below.</p>
+           <table>
+            <thead>
+              <tr>
+                <th>    </th>
+                <th>Amazon</th>
+                <th>Airbnb</th>
+                <th>Google Forms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">Mouse/Touchpad</td>
+                <td> In order to select an item, you must
+            click button or label. Every selection reloads the entire page, so if you needed to select many filters, it would be inefficient.
+                    </td>
+                <td>
+                    Clicking anything in the line of the option will select it rather than just the button and label.
+                    You have to select the enter button to search allowing multiple selections without reload.
+                    </td>
+                <td> There are a few pixels of padding around the label and chekbox that can be selected. Allows for less precision, but not as accesible as Airbnb.
+                </td>
+              </tr>
+              <tr>
+                <td class="row-label">Keyboard</td>
+                <td>Using tab starts at the checkbox options and focuses through each one. Use enter key to select and deselect options. This is an intuitive action and is learnable.</td>
+                <td>You can step through options logically with tab key.
+                    Use spacebar to select but this is unintiutive for new users compared to enter key.</td>
+                <td>You can use tab to go through the options and spacebar to select/unselect. Enter can not be used to select/unselect.</td>
+              </tr>
+              <tr>
+                <td class="row-label">Mobile/Touch</td>
+                <td> The list is organized differently. You have to find the tab where the filter options are.
+                    </td>
+                <td>Functionality remains the same as touchpad.</td>
+                <td>Functionality remains the same as touchpad.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>I have concluded form this input research that while many applications aim to meet accessibility needs, there are some aspects of their component designs that can be improved for increased effectiveness.</p>
+
+        <h3> 02. Output</h3>  
+        <h4>Inputs modify the state of a component, and outputs serve as a visual or functional representation of that state. They allow for a user to better understand their interaction with the component. These outputs can manifest as changes in color, opacity, border size, 3D effects, and more. State can also be conveyed through text. Furthermore, some outputs are not immediately visible, like alt text or component labels, which are typically accessed by screen readers for users with visual impairments. </h4>      
+        <h4>Returning the the aforementioned three websites, I analyzed the generated output and compared my findings below.</h4>
+        <table>
+            <thead>
+              <tr>
+                <th>    </th>
+                <th>Amazon</th>
+                <th>Airbnb</th>
+                <th>Google Forms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">Mouse/Touchpad</td>
+                <td> 3 states (default, hover, selected).Selected places a checkmark in the box.</td>
+                <td>3 states (default, hover, selected)
+                    Hover barely changes the look of the component. The box is slightly bolded.
+                    Selected places a checkmark in the box. every selection updates the submit button to include the number of rentals that exist.
+                    </td>
+                <td> 3 states (default, hover, selected)
+                    Selected places a checkmark in the box.
+                </td>
+              </tr>
+              <tr>
+                <td class="row-label">Keyboard</td>
+                <td>Focus state replaced hover (heavily bolded around the checkbox)</td>
+                <td>Focus state replaced hover (heavily bolded around the checkbox). </td>
+                <td>Focus state replaced hover (shadow around the checkbox)</td>
+              </tr>
+              <tr>
+                <td class="row-label">Mobile/Touch</td>
+                <td>2 states (no hover). Organized differently than desktop site.
+                    </td>
+                <td>2 states (no hover). Checkboxes are not oriented the same as on the desktop and you need to put in a direct search to access the filters.</td>
+                <td>2 states (no hover)</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Screen Reader</h4>
+          <p> I also used a screen reader to navigate through the component. While there were slight differences in how each company's component interacted with the reader, the overall experience was very unintuitive. For a new user, it was challenging to navigate to the component properly. Moving through the items in the checklist was nearly impossible.</p>
+          <p class = "smallTitle">Amazon</p>
+          <p>I followed the instructions the reader told me and successfully navigated to the component group, but was unable to parse through optins or select them even when I used the keys it indicated.</p>
+          <p class = "smallTitle">Airbnb</p>
+          <p>Same issue as Amazon. It was not intuitive how to move through the options. Maybe I am just not well-versed in the usage of screenreaders, but I also think it could have been made more learnable.</p>
+          <p class = "smallTitle">Google Forms</p>
+          <p>It was easier to get to the items in the list, but I could not select them.</p>
+          <h3> 03. Observation Images</h3> 
+          Scroll to see all images
+          <table class="table"><tr><td class="modelTableData">
+            <h3>Amazon</h3>
+  <div class="scroll-container">
+    <img src="defaultAmazon.png" alt="Image 1">
+    <img src="hoverAmazon.png" alt="Image 2">
+    <img src="selectAmazon.png" alt="Image 3">
+    <img src="focusAmazon.png" alt="Image 4">
+  </div>
+</td>
+
+</tr>
+<tr>
+   
+    <td class="modelTableData">
+        <h3>Airbnb</h3>
+    <div class="scroll-container">
+        <div class="imageAndCaption">
+            <img src="bnbLong.png" alt="Image 1">
+    </div>
+    </div>
+  </td>
+  
+  </tr>
+  <tr>
+    
+    <td class="modelTableData">
+        <h3>Google Forms</h3>
+    <div class="scroll-container">
+      <img src="formLong.png" alt="Image 1">
+  </td>
+  
+  </tr>
+
+</table>
+
+    </section>
+        <section id="implementation">
+            <h2>Implementation</h2>
+            <div class="inlineContainer">
+            <h4>I chose to redesign the </h4> <h4 class= "span" style="color:#DD2D4A">Airbnb</h4> <h4>checklist component.</h4></div>
+            <h3>01. Original State Models</h3>
+            <div class="inlineContainer">
+            <h4> Below are the original state models of the </h4> <h4 class= "span" style="color:#DD2D4A">Airbnb</h4> <h4>checklist component.</h4></div>
+
+        <table >
+            <tbody>
+                <tr>
+                    <td class="modelTableData">
+                        <div class="inlineContainer">
+                            <h4>The first state model focuses on interactions for </h4><h4 class="span" style="color:#DD2D4A"> mouse users:</h4>
+                        </div>
+                    </td>
+                    <td class="modelTableData">
+                        <div class="inlineContainer">
+                            <h4>The second state model focuses on interactions for </h4><h4 class="span" style="color:#DD2D4A"> keyboard users:</h4>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="modelTableData">
+                        <img src="beforeMouse2.png" class="image">
+                    </td>
+                    <td class="modelTableData">
+                        <img src="beforeKeyboard2.png" class="image">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+       
+        
+       
+            <h3>02. Redesigned State Models</h3>
+            <table >
+                <tbody>
+                    <tr>
+                        <td class="modelTableData">
+                            <div class="inlineContainer">
+                                <h4>The first state model focuses on interactions for </h4><h4 class="span" style="color:#DD2D4A"> mouse users:</h4>
+                            </div>
+                        </td>
+                        <td class="modelTableData">
+                            <div class="inlineContainer">
+                                <h4>The second state model focuses on interactions for </h4><h4 class="span" style="color:#DD2D4A"> keyboard users:</h4>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="modelTableData">
+                            <img src="alteredMouse2.png" class="image">
+                        </td>
+                        <td class="modelTableData">
+                            <img src="alteredKeyboard2.png" class="image">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>My goal in the redesign was to allow more flexibility for the area that users need to click. I expanded the input to include the entire line that the item lies on rather than only the box and label. This was to increase efficiency. I also wanted to include a line of instruction for learnability. It was important to me that the hover function had a clearer state change. For keyboard users, I included enter as a selection/deselection key as I beleive it to be more intuitive than spacebar.</p>
+            <h3>03. Final Redesign</h3>
+            <table class="table2">
+                <tr>
+                    <td class="modelTableData">Default State</td>
+                    <td class="modelTableData">
+                        <img src="default.png" class="image2">
+                    </td>
+                    <td class="modelTableData">Learnability: 
+                        <p>- short instructional line</p>
+                       <p> - users will know how to interact with the component.</p></td>
+                    <td class="modelTableData">Memorability: 
+                        <p>- expanded the keyboard shortcuts to include down/up arrows to toggle between options. </p>
+                        <p>- more intuitive and helpful for frequent users.</p></td>
+                </tr>
+                <tr>
+                    <td class="modelTableData">Hover State</td>
+                    <td class="modelTableData">
+                        <img src="hover.png" class="image2">
+                    </td>
+                    <td colspan="2" class="modelTableData">  Accessibility: 
+                       <p> - increased the contrast in visual output between default and hover states. </p>
+                       <p> - allow users to more easily see the list items they can select.</p>
+                       <p> - improved upon the old hover state which barely outlined the checkbox</p>
+                       <p> - may also help those that are visually impaired.</p></td>
+                </tr>
+                <tr>
+                    <td class="modelTableData">Selected State</td>
+                    <td class="modelTableData">
+                        <img src="selected.png" class="image2">
+                    </td>
+                    <td colspan="2" class="modelTableData">Efficiency: 
+                        <p>- I also expanded the selection window for a given item to be the box, label, and the horizontally aligned area near the label. </p>
+                        <p>- selection quicker and easier because you do not have to be particular about clicking inside the box.</p></td>
+                </tr>
+            </table>
+        
+        </section>
+        <section id="reflection">
+            <h2>Reflection</h2>
+            <p class="smallTitle">In my observations, I found that different components excelled in usability and accessibility in various ways:</p>
+<p>- Amazon's keyboard navigation is intuitive, allowing users to tab through options and use the enter key for selection, enhancing learnability.</p>
+<p>- Airbnb improves accessibility for mouse and touchpad users by expanding the clickable area beyond just the checkbox and label, making selection easier for those with motor impairments.</p>
+<p>- Airbnb also prevents unnecessary page reloads, improving efficiency and streamlining the selection process.</p>
+<p>- Google Forms provides a slight selection buffer around checkboxes, requiring less precision, which benefits users with motor difficulties.</p>
+<p class="smallTitle"> In my design, I aimed to use the successful features of these applications as well as improve upon some points they missed:</p>
+<p>- My design ensured full keyboard accessibility by allowing users to navigate with the tab key and select/deselect using both the enter and spacebar keys.</p>
+<p>- I expanded the clickable area around each option to enhance usability for users with limited precision and address their "mismatch" with traditional clickable areas.</p>
+<p>- A key improvement in my design was the inclusion of instructions, which increased the learnability of the component for first-time users.</p>
+<p class="smallTitle">After completing this case study, I have learned a lot about the way companies view accessible interaction design:</p>
+<p>- Many companies prioritize mouse and touchpad users because they make up the majority, often neglecting marginalized users with different accessibility needs.</p>
+<p>- To create truly inclusive experiences, designers must balance trade-offs and consider usability for all users, not just the majority.</p>
+
+        </section>
+        <section id="impact">
+            <h2>Impact</h2>
+            <p>While I challenged you to imagine yourself as a person with a motor, visual, or audio disability, the truth is that we are privileged to ignore inaccessible designs. So, doing adamant research and implementing proper features can help to keep accessibility at the forefront, ensuring that all users—regardless of their abilities—can navigate and interact with digital spaces effectively. It's essential to prioritize inclusivity in design, so no one is left behind when engaging with technology.</p>
+
+        </section>
+    </main>
+</body>
+</html>

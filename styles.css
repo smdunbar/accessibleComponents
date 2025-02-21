@@ -1,0 +1,141 @@
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #CBEEF3 ;;
+    color: #333;
+}
+header {
+    background: #CBEEF3;
+    color: #880D1E;
+    padding: 10px;
+    text-align: center;
+}
+main {
+    max-width: 80vw;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+section {
+    margin-bottom: 20px;
+    
+}
+h2 {
+    border-bottom: 2px solid #880D1E;
+    padding-bottom: 5px;
+    color: black;
+}
+h1{
+    font-size: 45px;
+}
+  
+  h3 {
+    color:#880D1E;
+    margin-bottom: 2px;
+  }
+
+  
+  p{
+    margin-top: 2px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    
+  }
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #F26A8D;
+  }
+  th {
+    background-color: #880D1E;
+    color: #fff;
+    font-size: 1.2em;
+  }
+  td {
+    background-color:  #CBEEF3;
+  
+  }
+
+  .row-label {
+    background-color: #880D1E;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+  }
+  .smallTitle{
+    color: #DD2D4A;
+
+  }
+  .inlineContainer{
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .span{
+    
+        margin-inline: 3px;
+      
+  }
+
+  .image{
+    display: flex;
+    flex-direction: row;
+    max-width: 70vh;
+   justify-content: center;
+  }
+  .image2{
+    display: flex;
+    flex-direction: row;
+    max-width: 40vh;
+   justify-content: center;
+  }
+
+  .modelTableData{
+    background-color: white;
+    border: transparent;
+    text-align: center;
+    align-content: center;
+  }
+
+  .modelTableData{
+    background-color: white;
+    border: transparent;
+    text-align: left;
+    align-content: left;
+  }
+
+  .table2{
+    width: 40vw;
+  }
+
+  .scroll-container {
+    width: 70vw;
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents images from wrapping */
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    border:2px solid #880D1E;
+    scroll-behavior: smooth; /* Smooth scrolling */
+  }
+
+  .scroll-container img {
+    width: auto;  /* Adjust size */
+    height: 40vh;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+ .imageAndCaption{
+    display:flex;
+    flex-direction: column;
+
+
+ }
